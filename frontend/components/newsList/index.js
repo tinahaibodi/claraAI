@@ -1,7 +1,6 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react/native';
-import {Image} from 'react-native';
-import BillListItem from '../billListItem';
+import NewsListItem from '../newsListItem';
 import {Container, Content, ListItem, Body, Text, Header, Left, Right, Button, Icon} from 'native-base';
 import FooterTabs from '../footerTabs';
 import styles from './styles'
@@ -32,12 +31,12 @@ const NewsList = (props) => {
                 {
                     props.appState.bills.map((bill) => {
                         return (
-                            <BillListItem bill={bill} key={bill.bill_id}/>
+                            <NewsListItem news={bill} key={bill.uid}/>
                         )
                     })
                 }
             </Content>
-            <FooterTabs/>
+            {/*<FooterTabs/>*/}
         </Container>
     )
 };

@@ -7,16 +7,17 @@ import headerTheme from '../../themes/headerTheme';
 const styles = {
     container: backgroundTheme,
     header: {
+        height: itemTheme.height,
         backgroundColor: itemTheme.backgroundColor,
-        paddingBottom: itemTheme.paddingBottom,
-        paddingTop: itemTheme.paddingTop
+        paddingBottom: itemTheme.paddingBottom
     },
     title: {
         fontSize: itemTheme.titleFontSize,
         width: 275,
         textAlign: 'center',
         fontWeight: itemTheme.titleFontWeight,
-        color: itemTheme.textColor
+        color: itemTheme.textColor,
+        paddingTop: 15
     },
     subheading: {
         fontSize: itemTheme.subheadingFontSize,
@@ -31,7 +32,8 @@ const styles = {
     backArrow: {
         color: itemTheme.textColor,
         paddingBottom: itemTheme.backArrowPaddingBottom,
-        fontSize: itemTheme.backArrowFontSize
+        fontSize: itemTheme.backArrowFontSize,
+        paddingTop: 13
     },
     tabText: {
         color: tabTheme.textColor,
@@ -51,6 +53,14 @@ const styles = {
         alignItems: 'center',
         justifyContent: 'center'
 
+    },
+    sliderContainer: {
+        flex: 1,
+        width: 50,
+        marginLeft: 10,
+        marginRight: 10,
+        alignItems: "stretch",
+        justifyContent: "center"
     }
 };
 

@@ -1,14 +1,14 @@
 import { observable, action } from 'mobx';
-import specificBill from '../data/specificBill'
+import news from '../data/news'
 import Bill from './billStoree';
 import Representative from './representativeStore';
-import { getRecentBillsByMember, getSenatorsByState, getSpecificBill } from '../services/transport-layer';
+import { getRecentBillsByMember, getSenatorsByState, getSpecificBill, reportScore } from '../services/transport-layer';
 
 class AppState {
 
     @observable state;
     congress = '115';
-    @observable bills = specificBill;
+    @observable bills = news;
     @observable representatives = [];
 
     @action
@@ -83,6 +83,12 @@ class AppState {
             return new Representative(representative)
         });
     };
+
+    @action
+    userFeedback = (bool, obj) => {
+        obj.feedback = true;
+        reportScore(bool, obj.uid)
+    }
 }
 
 export default new AppState();

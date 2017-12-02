@@ -3,30 +3,32 @@ import { inject, observer } from 'mobx-react/native';
 import { action } from 'mobx';
 import { Actions } from 'react-native-router-flux';
 import { ScrollView, View } from 'react-native';
-import ActionGraphic from '../actionGraphic'
 import { sendFax } from '../../services/transport-layer';
+import Slider from 'react-native-slider';
 import { Container, Title, Subtitle, Icon, Right, Text, Body, ScrollableTab, Header, Tabs, Tab, Button, Left } from 'native-base';
-import PopupDialog from 'react-native-popup-dialog';
+import Popup from 'react-native-popup';
 import styles from './styles';
 
 @inject("appState") @observer
 export default class NewsPage extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            value: this.props.news.score
+        }
+    }
 
     @action
-    adjustVote = async (num) => {
-        await sendFax()
-        // if (num === 1) {
-        //     console.log(this.props.bill.votesFor);
-        //     this.props.bill.votesFor += 1
-        //     console.log(this.props.bill.votesFor)
-        // } else if (num === -1) {
-        //     this.props.bill.votesAgainst += 1
-        // }
-        // this.props.bill.voted = true
+    userFeedback = async (bool) => {
+        return this.props.appState.userFeedback(bool, this.props.news)
     };
 
+    onPressHandle() {
+        // alert
+        this.popup.alert(1);
+    },
+
     render() {
-        console.log(this.props.bill)
         return (
             <Container style={styles.container}>
                 <Header hasTabs style={styles.header} backgroundColor={styles.header.backgroundColor}>
@@ -40,26 +42,30 @@ export default class NewsPage extends Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title style={styles.title}>{this.props.bill.short_title ? this.props.bill.short_title : this.props.bill.title}</Title>
-                        <Subtitle style={styles.subheading}>{this.props.bill.bill}</Subtitle>
+                        <Title style={styles.title}>{this.props.news.title}</Title>
+                        <Subtitle style={styles.subheading}>{this.props.news.source}</Subtitle>
                     </Body>
                     <Right/>
                 </Header>
-                <Container>
+                <View>
                     <ScrollView>
 
-                        <View>
-                            <Text>Sponsor: {this.props.bill.sponsor_title + " " + this.props.bill.sponsor + "  " + this.props.bill.sponsor_party + "-" + this.props.bill.sponsor_state}</Text>
+                        {/*<View>*/}
+                            {/*{this.props.bill.summary ? <Text>{this.props.bill.summary}</Text> : <Text>No Summary! Check back in a few days while we write it</Text>}*/}
+                        {/*</View>*/}
+
+                        <View style={styles.sliderContainer}>
+                            <Slider
+                                value={this.state.value}
+                                onValueChange={value => this.setState({ value })}
+                            />
+                            <Text>
+                                Value: {this.state.value}
+                            </Text>
                         </View>
-                        {/*<ActionGraphic actions={bill.actions}/>*/}
 
 
-                        <View>
-                            {this.props.bill.summary ? <Text>{this.props.bill.summary}</Text> : <Text>No Summary! Check back in a few days while we write it</Text>}
-                        </View>
-
-
-                        {   this.props.bill.voted ?
+                        {   this.props.news.feedback ?
                             <View></View> :
                             <View
                                 style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
@@ -67,24 +73,19 @@ export default class NewsPage extends Component {
                                     <Button rounded success x-large
                                             style={{height: 70, width: 70, flexDirection: 'row', justifyContent: 'center'}}
                                             onPress={() => {
-                                                // this.adjustVote(1)
-                                                this.popupDialog.show()
+                                                this.onPressHandle.bind(this)
+                                                // this.userFeedback(true)
                                             }}>
+
                                         <Icon name='checkmark' style={{fontSize: 50}}/>
                                     </Button>
-                                    <PopupDialog
-                                        ref={(popupDialog) => { this.popupDialog = popupDialog; }}
-                                    >
-                                        <View>
-                                            <Text>Hello</Text>
-                                        </View>
-                                    </PopupDialog>
+                                    <Popup ref={popup => this.popup = popup }/>
                                 </View>
                                 <View>
                                     <Button rounded danger x-large
                                             style={{height: 70, width: 70, flexDirection: 'row', justifyContent: 'center'}}
                                             onPress={() => {
-                                                this.adjustVote(-1)
+                                                this.userFeedback(false)
                                             }}>
                                         <Icon name='close' style={{fontSize: 50}}/>
                                     </Button>
@@ -92,33 +93,7 @@ export default class NewsPage extends Component {
                             </View>
                         }
                     </ScrollView>
-                    {/*<Tabs renderTabBar={() =>*/}
-                        {/*<ScrollableTab style={styles.tabBackground}/>*/}
-                    {/*} tabBarUnderlineStyle={styles.tabUnderline}>*/}
-                        {/*<Tab heading="TEXT"*/}
-                             {/*tabStyle={styles.tabBackground}*/}
-                             {/*activeTabStyle={styles.tabBackground}*/}
-                             {/*textStyle={styles.tabText}*/}
-                             {/*activeTextStyle={styles.tabText}*/}
-                             {/*scrollEnabled={false}*/}
-                        {/*>*/}
-                            {/*<ScrollView>*/}
-                                {/*/!*<TransactionReceiptSection item={props.item}/>*!/*/}
-                                {/*/!*<TransactionMemoSection item={props.item}/>*!/*/}
-                            {/*</ScrollView>*/}
-                        {/*</Tab>*/}
-                        {/*<Tab heading="MESSAGE"*/}
-                             {/*tabStyle={styles.tabBackground}*/}
-                             {/*activeTabStyle={styles.tabBackground}*/}
-                             {/*textStyle={styles.tabText}*/}
-                             {/*activeTextStyle={styles.tabText}*/}
-                        {/*>*/}
-                            {/*<ScrollView>*/}
-                                {/*/!*<TransactionBudgetSection item={props.item}/>*!/*/}
-                            {/*</ScrollView>*/}
-                        {/*</Tab>*/}
-                    {/*</Tabs>*/}
-                </Container>
+                </View>
             </Container>
         )
     }

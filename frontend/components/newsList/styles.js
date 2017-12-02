@@ -23,6 +23,7 @@ const styles = {
     title: {
         fontSize: 18,
         width: 275,
+        paddingTop: 5,
         textAlign: 'center',
         fontWeight: '500',
         color: 'white'

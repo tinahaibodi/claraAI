@@ -12,7 +12,7 @@ const FooterTabs = (props) => {
                         onPress={() => { Actions.billList() }}
                 >
                     <Icon name="ios-document" />
-                    <Text>Bills</Text>
+                    <Text>News</Text>
                 </Button>
                 <Button vertical
                         onPress={() => { Actions.representativeList() }}

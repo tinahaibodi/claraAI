@@ -3,7 +3,7 @@ export default itemTheme = {
     backgroundColor: '#1A2D41',
     height: 76,
     paddingBottom: 5,
-    paddingTop: 30,
+    paddingTop: 5,
     titleFontWeight: '500',
     titleFontSize: 18,
     subheadingFontSize: 11,

@@ -2,13 +2,14 @@ import React from 'react';
 import NewsList from './components/newsList';
 import NewsPage from './components/newsPage';
 import { Provider } from 'mobx-react/native';
+import appState from './stores/appState';
 import { Router, Scene } from 'react-native-router-flux';
 
 export default class App extends React.Component {
 
     render() {
         return (
-            <Provider appState={appState} donationStore={donationStore}>
+            <Provider appState={appState}>
                 <Router>
                     <Scene key="root" hideNavBar hideTabBar>
                         <Scene navigationBarStyle={{statusBarTextColorScheme: 'light'}} key="billList" component={NewsList}/>
