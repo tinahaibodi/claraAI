@@ -4640,6 +4640,12 @@ react-native-button@^2.1.0:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-dialogbox@^0.6.8:
+  version "0.6.8"
+  resolved "https://registry.yarnpkg.com/react-native-dialogbox/-/react-native-dialogbox-0.6.8.tgz#750b4011d9ff8850a42546e7b28869b21fdf1936"
+  dependencies:
+    prop-types "^15.6.0"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"

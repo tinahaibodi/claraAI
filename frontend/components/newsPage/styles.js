@@ -5,7 +5,10 @@ import tabTheme from '../../themes/tabTheme';
 import headerTheme from '../../themes/headerTheme';
 
 const styles = {
-    container: backgroundTheme,
+    container: {
+        backgroundColor: backgroundTheme.backgroundColor,
+        height: 600
+    },
     header: {
         height: itemTheme.height,
         backgroundColor: itemTheme.backgroundColor,

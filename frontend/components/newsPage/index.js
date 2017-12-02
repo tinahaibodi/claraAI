@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react/native';
 import { action } from 'mobx';
 import { Actions } from 'react-native-router-flux';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, Modal } from 'react-native';
 import { sendFax } from '../../services/transport-layer';
 import Slider from 'react-native-slider';
 import { Container, Title, Subtitle, Icon, Right, Text, Body, ScrollableTab, Header, Tabs, Tab, Button, Left } from 'native-base';
+import DialogBox from 'react-native-dialogbox';
 import Popup from 'react-native-popup';
 import styles from './styles';
 
@@ -14,7 +15,8 @@ export default class NewsPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            value: this.props.news.score
+            value: this.props.news.score,
+            visibleModal: false
         }
     }
 
@@ -26,11 +28,12 @@ export default class NewsPage extends Component {
     onPressHandle() {
         // alert
         this.popup.alert(1);
-    },
+    };
 
     render() {
         return (
             <Container style={styles.container}>
+                <Popup ref={popup => this.popup = popup }/>
                 <Header hasTabs style={styles.header} backgroundColor={styles.header.backgroundColor}>
                     <Left>
                         <Button transparent
@@ -47,22 +50,22 @@ export default class NewsPage extends Component {
                     </Body>
                     <Right/>
                 </Header>
-                <View>
+                <View style={{flex: 1}}>
                     <ScrollView>
 
                         {/*<View>*/}
                             {/*{this.props.bill.summary ? <Text>{this.props.bill.summary}</Text> : <Text>No Summary! Check back in a few days while we write it</Text>}*/}
                         {/*</View>*/}
 
-                        <View style={styles.sliderContainer}>
-                            <Slider
-                                value={this.state.value}
-                                onValueChange={value => this.setState({ value })}
-                            />
-                            <Text>
-                                Value: {this.state.value}
-                            </Text>
-                        </View>
+                        {/*<View style={styles.sliderContainer}>*/}
+                            {/*<Slider*/}
+                                {/*value={this.state.value}*/}
+                                {/*onValueChange={value => this.setState({ value })}*/}
+                            {/*/>*/}
+                            {/*<Text>*/}
+                                {/*Value: {this.state.value}*/}
+                            {/*</Text>*/}
+                        {/*</View>*/}
 
 
                         {   this.props.news.feedback ?
@@ -72,15 +75,13 @@ export default class NewsPage extends Component {
                                 <View>
                                     <Button rounded success x-large
                                             style={{height: 70, width: 70, flexDirection: 'row', justifyContent: 'center'}}
-                                            onPress={() => {
-                                                this.onPressHandle.bind(this)
-                                                // this.userFeedback(true)
-                                            }}>
+                                            onPress={() => {this.setState({value: this.state.value, visibleModal: true})}}>
 
                                         <Icon name='checkmark' style={{fontSize: 50}}/>
                                     </Button>
-                                    <Popup ref={popup => this.popup = popup }/>
                                 </View>
+                                {/*<Text style={styles.btn} onPress={this.onPressHandle.bind(this)}>click me !</Text>*/}
+                                {/*<Popup ref={popup => this.popup = popup }/>*/}
                                 <View>
                                     <Button rounded danger x-large
                                             style={{height: 70, width: 70, flexDirection: 'row', justifyContent: 'center'}}
