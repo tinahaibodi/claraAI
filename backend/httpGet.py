@@ -47,6 +47,15 @@ def scrape():
 	summary = article.summary
 	client = language.LanguageServiceClient()
 
+	#Fakeness Score
+	fake_score = 0
+	if "breitbart" in inputted_url:
+		fake_score = 1
+	elif "infowars" in inputted_url:
+		fake_score = 1
+		
+
+	#Political Leaning
 	testVector = generateVector(full_text)
 	political_leaning = sides[clf.predict([testVector])[0]]
 	political_confidence = math.sqrt(max(clf.predict_proba([testVector])[0]) - min(clf.predict_proba([testVector])[0]))
@@ -55,6 +64,7 @@ def scrape():
 	elif political_confidence < .15:
 		political_leaning = "Neutral"
 
+	#Sentiment Analysis
 	document = types.Document(content=full_text, type=enums.Document.Type.PLAIN_TEXT)
 	annotations = client.analyze_sentiment(document=document)
 	sentiment_score = annotations.document_sentiment.score
@@ -66,7 +76,7 @@ def scrape():
 
 	score = 0
 
-	json_data = json.dumps({'url': inputted_url, 'image_url': image_url, 'sentiment_score': sentiment_score, 'political_leaning': political_leaning, 'political_confidence': political_confidence, 'fake_score': score, 'authors': authors, 'summary': full_text, 'key_word': keywords})
+	json_data = json.dumps({'url': inputted_url, 'image_url': image_url, 'sentiment_score': sentiment_score, 'political_leaning': political_leaning, 'political_confidence': political_confidence, 'fake_score': fake_score, 'authors': authors, 'summary': summary, 'key_word': keywords})
 	result = firebase.post('/posts', json_data)
 	print(result)
 
