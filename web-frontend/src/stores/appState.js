@@ -13,7 +13,7 @@ class AppState {
     @action
     getNews = async () => {
         let res = await getArticles();
-        let JSON = [];
+        let jsonList = [];
         let keys = Object.keys(res);
         console.log("keys", keys)
         for (let i=0; i<keys.length; i++) {
@@ -23,10 +23,10 @@ class AppState {
             console.log("value", val)
             val["uid"] = key;
             console.log("modified value", val)
-            JSON += [val]
+            jsonList.push(val)
         }
 
-        this.news = JSON;
+        this.news = jsonList;
     };
 }
 
