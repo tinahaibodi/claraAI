@@ -6,11 +6,7 @@ import { inject, observer } from 'mobx-react';
 export default class ClaraMain extends Component {
 
     startRecording = async () => {
-        console.log("recording")
-        this.props.appState.loading = true;
         let res = await this.props.appState.initiateRecording()
-        setTimeout(function(){console.log("5 seconds have passed")}, 5000);
-        this.props.appState.loading = false;
         return res
     };
 

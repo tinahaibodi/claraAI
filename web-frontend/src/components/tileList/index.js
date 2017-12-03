@@ -7,7 +7,6 @@ import { inject, observer } from 'mobx-react';
 export default class TileList extends Component {
 
     render() {
-        console.log(this.props.appState)
         return (
             <Row gutter={16} style={{flexDirection: 'row', flexWrap: 'wrap'}}>
                 {
