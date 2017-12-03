@@ -1,9 +1,8 @@
 import { observable, action } from 'mobx';
-import news from '../data/news'
 import { beginRecording, getArticles } from '../services/transport-layer';
 
 class AppState {
-    @observable news = news;
+    @observable news = [];
 
     @observable loading = false;
 
@@ -13,7 +12,21 @@ class AppState {
 
     @action
     getNews = async () => {
-        return await getArticles()
+        let res = await getArticles();
+        let JSON = [];
+        let keys = Object.keys(res);
+        console.log("keys", keys)
+        for (let i=0; i<keys.length; i++) {
+            let key = keys[i];
+            console.log("key", key)
+            let val = res[key];
+            console.log("value", val)
+            val["uid"] = key;
+            console.log("modified value", val)
+            JSON += [val]
+        }
+
+        this.news = JSON;
     };
 }
 
