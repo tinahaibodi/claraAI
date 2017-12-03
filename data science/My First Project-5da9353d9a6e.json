@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "solar-maker-187804",
+  "private_key_id": "5da9353d9a6ec30c79f201a2e62065746e244756",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCYB2EMUceMsXOv\nLaiwoBA++RPUp7bMP5wPVbhA0gA0MfGsdOsfFxNonkwzL8rROK8dX/rg5iAq60bL\nKC/HWqiP5oEqiYs8xs66sJ7KLFGBqAgA3TZU0mhfVsWJ6rSmMIbMb7b1tfLxsDes\n3dqIOo4rLGF20pUMrn03haSrTIOZ4QnycYk2M72VO7nmcCoIVn2P810SX44x778i\nL5+Nal9+cnxhQYmUoXKsDLkihieKMmP8ofRsHa+BRUFxTknC+sa9vhTZazFfhgMV\n9jy90w7sEB3WUinJ5ke0HLsRZoYAQK5aFivTZ1yGGFFIIXCWQBVoaRsp3D4wgL7a\n+YVt64IxAgMBAAECggEABYDq4fvJ6g14fyR7gV1iCS2SKrYhl3ZMC4ASagJQMJOI\nSLJ42ojG0pg8cPPvdzCComEZn2+lRXh7+RnM1P4ysPbqwSP2ju4xiK+hJ/d/wd5X\n39QiReLSFXV6NDpzbLq//oGi0XVTRK2Y7mCfqyPXhreWFauc6rccYFits+fSsczV\n+PBut2evpRFVyKXUXW9+aIDTCpILaSqDpA6p+gvJlbwWYnq/ihUpx/DPk3G7GnxW\nfz5wcZNyT+uVGHA80m4Oymvx9ExHEOhmOreS3toiTnvFp5pME97p7KNIYdNicwo8\ngh/IvdLjAz47DxN7zrdOkD5NP9Bjj8esFN/AGjNRCwKBgQDMZRXKGqK2Giu5xfID\ncbG+PC/Xxutr9AOI5mpfLZrmSxNM60zoNid42bMjKZoBKcAInRcrO5wOS3h4BbTY\nw4wlu8gBR2ifZRIK6bMbNpkfNr59ZPjzHvnvuFZpS40vGHPR/5YZ3njvLdvJRYMA\n15/quwhTLX+15dk8dC4MsRSHWwKBgQC+aacZmhfnFRimFWuk3EGZ8Gn00uqq0w2F\nUZaGmLNnjl6UPCi+2Ebz0mTcIsF4FwZm2ybmwNarXg8lPlogzsflGMHdYHUfvjFg\n4VhFQIygfqhP2koWcMOvs/8uo4HM59WKr5quyD7i8esIKnwHKj8ht0QGnGu0yI1N\nyzd8MiOeYwKBgE5X8KIm03c5UMlENh9b1OU17KCoflRCk5hFuUACGv1qiVtSVYgs\nObT4vNEdgQoxFoo2rErF7msMQoC+rzLmwTE1aNQUquVtuBy2txAXPVnZgepOaZ3G\nocZgwb5aVyNWHA7CCKahv3jt+vCK1EveWk1+oxI+vlTaZQnm/j+fIF9BAoGBAJPB\nWmh0eY3YgfsG7jPMsp8ovp+7N1v9UCWe7QZe4gA+qseucxO8sjorjhaAZc6xV0dj\nUamIBEyQPYJyAvAoZVcyQeVuHxTVum1qD9wVPcqg3iywwALv1/m03BStzmBZmgv3\nPjnYq2vhu7bneLz6nGimVIQoxy9O3M98HP8jzR3vAoGBAIOY8mY94kchwry0Koz7\nxqqrZJmntx4WyjGjbrhiC4NfTODVrNzrHhCkCVh8pyAtTiubgTZ6reFu+Ap8nR+z\ne2ofhPZiapvzOdnCElgmlGWL4lzXw3KF8x2jEt7rsetenHdayyWmha4nUNCV5fXM\nJMj1yaEBFmc6vIA3lvuKY80c\n-----END PRIVATE KEY-----\n",
+  "client_email": "starting-account-6aq8sr5ho7zv@solar-maker-187804.iam.gserviceaccount.com",
+  "client_id": "117565402936266154911",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/starting-account-6aq8sr5ho7zv%40solar-maker-187804.iam.gserviceaccount.com"
+}
