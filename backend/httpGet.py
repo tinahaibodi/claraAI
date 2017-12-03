@@ -41,6 +41,7 @@ def scrape():
 	image_url = article.top_image
 	authors = article.authors
 	full_text = article.text
+	title = article.title
 
 	article.nlp()
 	keywords = article.keywords
@@ -76,7 +77,7 @@ def scrape():
 
 	score = 0
 
-	json_data = json.dumps({'url': inputted_url, 'image_url': image_url, 'sentiment_score': sentiment_score, 'political_leaning': political_leaning, 'political_confidence': political_confidence, 'fake_score': fake_score, 'authors': authors, 'summary': summary, 'key_word': keywords})
+	json_data = json.dumps({'url': inputted_url, 'title': title, 'image_url': image_url, 'sentiment_score': sentiment_score, 'political_leaning': political_leaning, 'political_confidence': political_confidence, 'fake_score': fake_score, 'authors': authors, 'summary': summary, 'key_word': keywords})
 	result = firebase.post('/posts', json_data)
 	print(result)
 
@@ -105,6 +106,8 @@ def generateVector(article_text):
             vector[i] = article_features[total_words[i][0]]
     return vector
 
-if __name__ == '__main__':
-   app.run(debug = True)
-   webbrowser.open('file://' + os.path.realpath("url.html"))
+if __name__ == "__main__":
+    # app.run(debug=True)
+    # Bind to PORT if defined, otherwise default to 5000.
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
