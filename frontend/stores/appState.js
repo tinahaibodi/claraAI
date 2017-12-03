@@ -88,7 +88,7 @@ class AppState {
     userFeedback = (bool, obj) => {
         obj.feedback = true;
         reportScore(bool, obj.uid)
-    }
+    };
 }
 
 export default new AppState();
