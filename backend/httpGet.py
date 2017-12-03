@@ -87,7 +87,7 @@ def scrape():
 def getAll():
 	rec_data = firebase.get('/posts', None)
 	json_data = json.dumps(rec_data)
-	return redirect(url_for('success', data = json_data))
+	return json_data
 
 @app.route('/success/<path:data>')
 def success(data):
