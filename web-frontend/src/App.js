@@ -9,6 +9,10 @@ import 'antd/dist/antd.css';
 
 class App extends Component {
 
+    componentWillMount = async () => {
+        await appState.getNews()
+    };
+
   render() {
     return (
         <Provider appState={appState}>

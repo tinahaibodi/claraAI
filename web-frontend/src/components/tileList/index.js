@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Card, Button, Row } from 'antd'
-import ClaraMain from '../claraMain'
 import TileListItem from '../tileListItem';
 import { inject, observer } from 'mobx-react';
 
@@ -8,7 +7,7 @@ import { inject, observer } from 'mobx-react';
 export default class TileList extends Component {
 
     render() {
-        console.log("props.home", this.props.home)
+        console.log(this.props.appState)
         return (
             <Row gutter={16} style={{flexDirection: 'row', flexWrap: 'wrap'}}>
                 {
