@@ -31,14 +31,14 @@ How to integrate Google APIs into our Flask backend, and how to work with speech
 We want to improve upon the application by properly distributing it to the right channels. One of our team members is part of a group of students at UC Berkeley that builds these types of apps for fun, including BotCheck.Me and Newsbot. We plan to continue this work with them.
 
 ## Built With: 
-react-native
-flask
-firebase
-google-cloud
-google-search-engine
-google-vision
-ibm-watson
-google-cloud-search
-google-web-speech-api
-sklearn
+react-native,
+flask,
+firebase,
+google-cloud,
+google-search-engine,
+google-vision,
+ibm-watson,
+google-cloud-search,
+google-web-speech-api,
+sklearn,
 
